@@ -15,7 +15,7 @@ export default function Home() {
   }
 
   return (
-    <main className={`flex flex-col gap-10 p-12`}>
+    <main className={`flex flex-col gap-4 p-12`}>
       <div>Home Page</div>
 
       <button
@@ -71,7 +71,7 @@ export default function Home() {
                   <div className="mt-8">
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-500 text-white px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-500 text-white px-4 py-2 text-sm font-medium hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={closeModal}
                     >
                       Got it, thanks!

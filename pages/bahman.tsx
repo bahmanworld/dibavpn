@@ -3,7 +3,7 @@ import { FiArrowLeft } from "react-icons/fi";
 
 const Bahman = () => {
   return (
-    <main className={`flex flex-col gap-10 p-12`}>
+    <main className={`flex flex-col gap-4 p-12`}>
       <div>bahman</div>
       <Link href={"/"} className="flex flex-row items-center">
         <span className="ml-1">
