@@ -4,7 +4,7 @@ import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 
 export default function Home() {
-  let [isOpen, setIsOpen] = React.useState(true);
+  let [isOpen, setIsOpen] = React.useState(false);
 
   function closeModal() {
     setIsOpen(false);
@@ -20,7 +20,13 @@ export default function Home() {
     >
       <div>Home Page</div>
 
-      <button onClick={() => setIsOpen(!isOpen)}>Open / Close</button>
+      <button
+        type="button"
+        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+        onClick={openModal}
+      >
+        Open Thank You Modal
+      </button>
 
       <Transition appear show={isOpen} as={React.Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
