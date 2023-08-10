@@ -4,7 +4,7 @@ const Bahman = () => {
   return (
     <div>
       <div>bahman</div>
-      <Link href={"/"}>Home Page</Link>
+      <Link href={"/"}>Home Page ↩</Link>
     </div>
   );
 };
