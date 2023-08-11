@@ -199,12 +199,12 @@ export default function Home() {
                   >
                     {active ? (
                       <FiDelete
-                        className="mr-2 h-5 w-5 text-violet-400"
+                        className="mr-2 h-5 w-5 text-red-400"
                         aria-hidden="true"
                       />
                     ) : (
                       <FiDelete
-                        className="mr-2 h-5 w-5 text-violet-400"
+                        className="mr-2 h-5 w-5 text-red-400"
                         aria-hidden="true"
                       />
                     )}
