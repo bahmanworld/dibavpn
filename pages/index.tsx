@@ -6,12 +6,19 @@ import {
   FiArrowRight,
   FiCheckCircle,
   FiChevronDown,
+  FiChevronsDown,
   FiCopy,
+  FiCrosshair,
   FiDelete,
+  FiDownload,
+  FiDownloadCloud,
   FiEdit,
   FiFolderPlus,
+  FiMaximize2,
   FiMove,
+  FiPower,
   FiSettings,
+  FiStar,
 } from "react-icons/fi";
 
 export default function Home() {
@@ -29,12 +36,20 @@ export default function Home() {
     <main className={`flex flex-col gap-4 p-12`}>
       <div>Home Page</div>
 
+      <div className="bg-stone-700 w-[200px] aspect-[9/12] rounded-xl p-4 hover:scale-105 transition-transform duration-200 ease-in-out">
+        <b>Spider-Man: across the spider-verse</b>
+        <div className="flex flex-row items-center text-orange-400 mt-3">
+          <FiStar className="w-4 h-4 mr-1" /> 8.9 / 10
+        </div>
+      </div>
+
       <button
         type="button"
-        className="inline-flex justify-center self-start rounded-xl transition-all duration-200 border border-transparent bg-blue-500 px-4 py-2 text-sm font-medium text-slate-50 hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+        className="inline-flex justify-center self-start rounded-xl transition-all duration-200 border border-transparent bg-indigo-500 px-4 py-2 text-sm font-medium text-slate-50 hover:bg-indigo-600"
         onClick={openModal}
       >
-        Open Thank You Modal
+        <FiPower className="mr-2 h-5 w-5" aria-hidden="true" />
+        Open Modal
       </button>
 
       <Transition appear show={isOpen} as={React.Fragment}>
@@ -48,7 +63,7 @@ export default function Home() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-75" />
+            <div className="fixed inset-0 bg-stone-950 bg-opacity-75" />
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
@@ -62,30 +77,42 @@ export default function Home() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-gray-700 text-black dark:text-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-stone-800 text-black dark:text-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h4"
-                    className="flex flex-row items-center text-lg font-normal leading-6 text-blue-500"
+                    className="flex flex-row items-center text-lg font-normal leading-6 text-yellow-500"
                   >
                     <div className="mr-2">
-                      <FiCheckCircle />
+                      <FiDownload className="mr-1 h-5 w-5" aria-hidden="true" />
                     </div>
-                    <div>Payment Successful</div>
+                    <div>Download Warning!</div>
                   </Dialog.Title>
                   <div className="mt-4">
-                    <p className="text-sm opacity-80">
-                      Your payment has been successfully submitted. We’ve sent
-                      you an email with all of the details of your order.
+                    <p className="opacity-80 text-justify">
+                      Please be aware that you are about to downloading a file
+                      which hasn't been scanned for viruses. Dowload file on
+                      your own risk, or close this dialog.
                     </p>
                   </div>
 
-                  <div className="mt-8">
+                  <div className="mt-8 flex flex-row">
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-xl transition-all duration-200 border border-transparent bg-blue-500 text-white px-4 py-2 text-sm font-medium hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-xl transition-all duration-200 border border-transparent bg-indigo-500 text-white px-4 py-2 text-sm font-medium hover:bg-indigo-600"
                       onClick={closeModal}
                     >
-                      Got it, thanks!
+                      <FiDownloadCloud
+                        className="mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                      Download anyway!
+                    </button>
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-xl transition-all duration-200 border border-transparent bg-stone-500 text-white px-4 py-2 ml-2 text-sm font-medium hover:bg-stone-600 "
+                      onClick={closeModal}
+                    >
+                      Cancel
                     </button>
                   </div>
                 </Dialog.Panel>
@@ -97,9 +124,9 @@ export default function Home() {
 
       <Menu as="div" className="relative inline-block text-left self-center">
         <div>
-          <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+          <Menu.Button className="inline-flex w-full justify-center rounded-xl bg-stone-500 bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
             Options
-            <FiChevronDown
+            <FiChevronsDown
               className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
               aria-hidden="true"
             />
@@ -114,14 +141,14 @@ export default function Home() {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-stone-700 rounded-xl bg-stone-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-1 py-1 ">
               <Menu.Item>
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      active ? "bg-indigo-500 text-white" : "text-white"
+                    } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
                   >
                     {active ? (
                       <FiEdit className="mr-2 h-5 w-5" aria-hidden="true" />
@@ -136,8 +163,8 @@ export default function Home() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      active ? "bg-indigo-500 text-white" : "text-white"
+                    } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
                   >
                     {active ? (
                       <FiCopy className="mr-2 h-5 w-5 " aria-hidden="true" />
@@ -154,8 +181,8 @@ export default function Home() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      active ? "bg-indigo-500 text-white" : "text-white"
+                    } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
                   >
                     {active ? (
                       <FiArchive className="mr-2 h-5 w-5" aria-hidden="true" />
@@ -170,8 +197,8 @@ export default function Home() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      active ? "bg-indigo-500 text-white" : "text-white"
+                    } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
                   >
                     {active ? (
                       <FiFolderPlus
@@ -194,12 +221,12 @@ export default function Home() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      active ? "bg-red-500 text-white" : "text-red-500"
+                    } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
                   >
                     {active ? (
                       <FiDelete
-                        className="mr-2 h-5 w-5 text-red-400"
+                        className="mr-2 h-5 w-5 text-white"
                         aria-hidden="true"
                       />
                     ) : (
