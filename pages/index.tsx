@@ -1,7 +1,18 @@
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog, Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
 import React from "react";
-import { FiArrowRight, FiCheck, FiCheckCircle } from "react-icons/fi";
+import {
+  FiArchive,
+  FiArrowRight,
+  FiCheckCircle,
+  FiChevronDown,
+  FiCopy,
+  FiDelete,
+  FiEdit,
+  FiFolderPlus,
+  FiMove,
+  FiSettings,
+} from "react-icons/fi";
 
 export default function Home() {
   let [isOpen, setIsOpen] = React.useState(false);
@@ -20,7 +31,7 @@ export default function Home() {
 
       <button
         type="button"
-        className="inline-flex justify-center self-start rounded-md border border-transparent bg-blue-500 px-4 py-2 text-sm font-medium text-slate-50 hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+        className="inline-flex justify-center self-start rounded-xl transition-all duration-200 border border-transparent bg-blue-500 px-4 py-2 text-sm font-medium text-slate-50 hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         onClick={openModal}
       >
         Open Thank You Modal
@@ -37,7 +48,7 @@ export default function Home() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-slate-900 bg-opacity-75" />
+            <div className="fixed inset-0 bg-black bg-opacity-75" />
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
@@ -71,7 +82,7 @@ export default function Home() {
                   <div className="mt-8">
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-500 text-white px-4 py-2 text-sm font-medium hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-xl transition-all duration-200 border border-transparent bg-blue-500 text-white px-4 py-2 text-sm font-medium hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={closeModal}
                     >
                       Got it, thanks!
@@ -83,6 +94,128 @@ export default function Home() {
           </div>
         </Dialog>
       </Transition>
+
+      <Menu as="div" className="relative inline-block text-left self-center">
+        <div>
+          <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+            Options
+            <FiChevronDown
+              className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
+              aria-hidden="true"
+            />
+          </Menu.Button>
+        </div>
+        <Transition
+          as={React.Fragment}
+          enter="transition ease-out duration-100"
+          enterFrom="transform opacity-0 scale-95"
+          enterTo="transform opacity-100 scale-100"
+          leave="transition ease-in duration-75"
+          leaveFrom="transform opacity-100 scale-100"
+          leaveTo="transform opacity-0 scale-95"
+        >
+          <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div className="px-1 py-1 ">
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${
+                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                  >
+                    {active ? (
+                      <FiEdit className="mr-2 h-5 w-5" aria-hidden="true" />
+                    ) : (
+                      <FiEdit className="mr-2 h-5 w-5" aria-hidden="true" />
+                    )}
+                    Edit
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${
+                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                  >
+                    {active ? (
+                      <FiCopy className="mr-2 h-5 w-5 " aria-hidden="true" />
+                    ) : (
+                      <FiCopy className="mr-2 h-5 w-5" aria-hidden="true" />
+                    )}
+                    Duplicate
+                  </button>
+                )}
+              </Menu.Item>
+            </div>
+            <div className="px-1 py-1">
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${
+                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                  >
+                    {active ? (
+                      <FiArchive className="mr-2 h-5 w-5" aria-hidden="true" />
+                    ) : (
+                      <FiArchive className="mr-2 h-5 w-5" aria-hidden="true" />
+                    )}
+                    Archive
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${
+                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                  >
+                    {active ? (
+                      <FiFolderPlus
+                        className="mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <FiFolderPlus
+                        className="mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    )}
+                    Move
+                  </button>
+                )}
+              </Menu.Item>
+            </div>
+            <div className="px-1 py-1">
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${
+                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                  >
+                    {active ? (
+                      <FiDelete
+                        className="mr-2 h-5 w-5 text-violet-400"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <FiDelete
+                        className="mr-2 h-5 w-5 text-violet-400"
+                        aria-hidden="true"
+                      />
+                    )}
+                    Delete
+                  </button>
+                )}
+              </Menu.Item>
+            </div>
+          </Menu.Items>
+        </Transition>
+      </Menu>
 
       <Link href={"/bahman"} className="flex flex-row items-center">
         <div>Bahman Page</div>
