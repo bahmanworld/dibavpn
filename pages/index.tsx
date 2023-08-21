@@ -4,22 +4,19 @@ import React from "react";
 import {
   FiArchive,
   FiArrowRight,
-  FiCheckCircle,
-  FiChevronDown,
   FiChevronsDown,
   FiCopy,
-  FiCrosshair,
   FiDelete,
   FiDownload,
   FiDownloadCloud,
   FiEdit,
   FiFolderPlus,
-  FiMaximize2,
-  FiMove,
   FiPower,
-  FiSettings,
   FiStar,
 } from "react-icons/fi";
+
+const name: string = "bahman";
+console.log(name);
 
 export default function Home() {
   let [isOpen, setIsOpen] = React.useState(false);
@@ -36,7 +33,7 @@ export default function Home() {
     <main className={`flex flex-col gap-4 p-12`}>
       <div>Home Page</div>
 
-      <div className="bg-stone-700 w-[200px] aspect-[9/12] rounded-xl p-4 hover:scale-105 transition-transform duration-200 ease-in-out">
+      <div className="bg-stone-700 w-[130px] aspect-[9/12] rounded-xl p-4 hover:scale-105 transition-transform duration-200 ease-in-out">
         <b>Spider-Man: across the spider-verse</b>
         <div className="flex flex-row items-center text-orange-400 mt-3">
           <FiStar className="w-4 h-4 mr-1" /> 8.9 / 10
@@ -95,7 +92,7 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="mt-8 flex flex-row">
+                  <div className="mt-8 flex flex-row justify-between">
                     <button
                       type="button"
                       className="inline-flex justify-center rounded-xl transition-all duration-200 border border-transparent bg-indigo-500 text-white px-4 py-2 text-sm font-medium hover:bg-indigo-600"
@@ -109,7 +106,7 @@ export default function Home() {
                     </button>
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-xl transition-all duration-200 border border-transparent bg-stone-500 text-white px-4 py-2 ml-2 text-sm font-medium hover:bg-stone-600 "
+                      className="inline-flex justify-center rounded-xl transition-all duration-200 border border-transparent bg-stone-800 text-white px-4 py-2 ml-2 text-sm font-medium hover:bg-stone-600 "
                       onClick={closeModal}
                     >
                       Cancel
@@ -122,7 +119,7 @@ export default function Home() {
         </Dialog>
       </Transition>
 
-      <Menu as="div" className="relative inline-block text-left self-center">
+      <Menu as={'div'} className="relative inline-block text-left self-center">
         <div>
           <Menu.Button className="inline-flex w-full justify-center rounded-xl bg-stone-500 bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
             Options
@@ -135,25 +132,25 @@ export default function Home() {
         <Transition
           as={React.Fragment}
           enter="transition ease-out duration-100"
-          enterFrom="transform opacity-0 scale-95"
+          enterFrom="transform opacity-0 scale-90"
           enterTo="transform opacity-100 scale-100"
           leave="transition ease-in duration-75"
           leaveFrom="transform opacity-100 scale-100"
-          leaveTo="transform opacity-0 scale-95"
+          leaveTo="transform opacity-0 scale-90"
         >
-          <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-stone-700 rounded-xl bg-stone-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div className="px-1 py-1 ">
+          <Menu.Items className="absolute left-0 mt-2 w-36 origin-top-right divide-y divide-stone-600 rounded-xl bg-stone-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div className="px-1 py-1">
               <Menu.Item>
                 {({ active }) => (
                   <button
                     className={`${
                       active ? "bg-indigo-500 text-white" : "text-white"
-                    } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
+                    } group flex w-full items-center rounded-lg px-2 py-1.5 transition-all duration-100 ease-in-out text-sm`}
                   >
                     {active ? (
-                      <FiEdit className="mr-2 h-5 w-5" aria-hidden="true" />
+                      <FiEdit className="mr-2 h-4 w-4" aria-hidden="true" />
                     ) : (
-                      <FiEdit className="mr-2 h-5 w-5" aria-hidden="true" />
+                      <FiEdit className="mr-2 h-4 w-4" aria-hidden="true" />
                     )}
                     Edit
                   </button>
@@ -164,12 +161,12 @@ export default function Home() {
                   <button
                     className={`${
                       active ? "bg-indigo-500 text-white" : "text-white"
-                    } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
+                    } group flex w-full items-center rounded-lg px-2 py-1.5 transition-all duration-100 ease-in-out text-sm`}
                   >
                     {active ? (
-                      <FiCopy className="mr-2 h-5 w-5 " aria-hidden="true" />
+                      <FiCopy className="mr-2 h-4 w-4 " aria-hidden="true" />
                     ) : (
-                      <FiCopy className="mr-2 h-5 w-5" aria-hidden="true" />
+                      <FiCopy className="mr-2 h-4 w-4" aria-hidden="true" />
                     )}
                     Duplicate
                   </button>
@@ -182,12 +179,12 @@ export default function Home() {
                   <button
                     className={`${
                       active ? "bg-indigo-500 text-white" : "text-white"
-                    } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
+                    } group flex w-full items-center rounded-lg px-2 py-1.5 transition-all duration-100 ease-in-out text-sm`}
                   >
                     {active ? (
-                      <FiArchive className="mr-2 h-5 w-5" aria-hidden="true" />
+                      <FiArchive className="mr-2 h-4 w-4" aria-hidden="true" />
                     ) : (
-                      <FiArchive className="mr-2 h-5 w-5" aria-hidden="true" />
+                      <FiArchive className="mr-2 h-4 w-4" aria-hidden="true" />
                     )}
                     Archive
                   </button>
@@ -198,16 +195,16 @@ export default function Home() {
                   <button
                     className={`${
                       active ? "bg-indigo-500 text-white" : "text-white"
-                    } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
+                    } group flex w-full items-center rounded-lg px-2 py-1.5 transition-all duration-100 ease-in-out text-sm`}
                   >
                     {active ? (
                       <FiFolderPlus
-                        className="mr-2 h-5 w-5"
+                        className="mr-2 h-4 w-4"
                         aria-hidden="true"
                       />
                     ) : (
                       <FiFolderPlus
-                        className="mr-2 h-5 w-5"
+                        className="mr-2 h-4 w-4"
                         aria-hidden="true"
                       />
                     )}
@@ -220,9 +217,10 @@ export default function Home() {
               <Menu.Item>
                 {({ active }) => (
                   <button
+                    onClick={()=> alert('the item has been deleted')}
                     className={`${
                       active ? "bg-red-500 text-white" : "text-red-500"
-                    } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
+                    } group flex w-full items-center rounded-lg px-2 py-1.5 transition-all duration-100 ease-in-out text-sm`}
                   >
                     {active ? (
                       <FiDelete
